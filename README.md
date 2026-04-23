@@ -1,6 +1,6 @@
 
 
-# 🤖 awesome-prjects for AI, LLM and Ethical Hacking Enthusiasts
+# 🤖 awesome-projects for AI, LLM and Ethical Hacking Enthusiasts
 
 <p align="left">
   <img src="https://img.shields.io/github/license/josephetim/awesome-projects?color=blue" />
@@ -9,6 +9,8 @@
   <img src="https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet" />
   <img src="https://img.shields.io/badge/Framework-LangChain%20%7C%20CrewAI-orange" />
 </p>
+
+[![Contributors](https://img.shields.io/github/contributors/your-org/awesome-ai-builds?style=flat-square)](https://github.com/your-org/awesome-ai-builds/graphs/contributors)
 
 ---
 
