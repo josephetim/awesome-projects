@@ -3,11 +3,11 @@
 # 🤖 awesome-ai
 
 <p align="left">
-  <a href="[https://github.com/josephetim/awesome-ai/blob/main/LICENSE](https://github.com/josephetim/awesome-ai/blob/main/LICENSE)">
-    <img src="[https://img.shields.io/github/license/josephetim/awesome-ai?color=blue](https://img.shields.io/github/license/josephetim/awesome-ai?color=blue)" alt="License" />
+  <a href="[https://github.com/josephetim/awesome-projects/blob/main/LICENSE](https://github.com/josephetim/awesome-projects/blob/main/LICENSE)">
+    <img src="[https://img.shields.io/github/license/josephetim/awesome-projects?color=blue](https://img.shields.io/github/license/josephetim/awesome-projects?color=blue)" alt="License" />
   </a>
-  <a href="[https://github.com/josephetim/awesome-ai/stargazers](https://github.com/josephetim/awesome-ai/stargazers)">
-    <img src="[https://img.shields.io/github/stars/josephetim/awesome-ai?style=social](https://img.shields.io/github/stars/josephetim/awesome-ai?style=social)" alt="Stars" />
+  <a href="[https://github.com/josephetim/awesome-projects/stargazers](https://github.com/josephetim/awesome-ai/stargazers)">
+    <img src="[https://img.shields.io/github/stars/josephetim/awesome-projects?style=social](https://img.shields.io/github/stars/josephetim/awesome-projects?style=social)" alt="Stars" />
   </a>
   <img src="[https://img.shields.io/badge/Maintained%3F-yes-green.svg](https://img.shields.io/badge/Maintained%3F-yes-green.svg)" alt="Maintained" />
   <img src="[https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet](https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet)" alt="AI Providers" />
