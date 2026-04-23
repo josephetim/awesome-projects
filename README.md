@@ -10,8 +10,6 @@
   <img src="https://img.shields.io/badge/Framework-LangChain%20%7C%20CrewAI-orange" />
 </p>
 
-[![Contributors](https://img.shields.io/github/contributors/your-org/awesome-ai-builds?style=flat-square)](https://github.com/your-org/awesome-ai-builds/graphs/contributors)
-
 ---
 
 > **No fluff. No toy tutorials.** Real AI projects documented for humans, ranging from single-file scripts to multi-agent production pipelines.
