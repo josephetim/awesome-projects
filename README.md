@@ -12,7 +12,6 @@
   <img src="[https://img.shields.io/badge/Maintained%3F-yes-green.svg](https://img.shields.io/badge/Maintained%3F-yes-green.svg)" alt="Maintained" />
   <img src="[https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet](https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet)" alt="AI Providers" />
 </p>
-
 > **No fluff. No toy tutorials.** A curated collection of end-to-end AI projects ranging from single-file scripts to multi-agent production pipelines, documented for humans.
 
 ---
