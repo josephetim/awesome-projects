@@ -3,18 +3,16 @@
 # 🤖 awesome-ai
 
 <p align="left">
-  <a href="[https://github.com/josephetim/awesome-projects/blob/main/LICENSE](https://github.com/josephetim/awesome-projects/blob/main/LICENSE)">
-    <img src="[https://img.shields.io/github/license/josephetim/awesome-projects?color=blue](https://img.shields.io/github/license/josephetim/awesome-projects?color=blue)" alt="License" />
-  </a>
-  <a href="[https://github.com/josephetim/awesome-projects/stargazers](https://github.com/josephetim/awesome-ai/stargazers)">
-    <img src="[https://img.shields.io/github/stars/josephetim/awesome-projects?style=social](https://img.shields.io/github/stars/josephetim/awesome-projects?style=social)" alt="Stars" />
-  </a>
-  <img src="[https://img.shields.io/badge/Maintained%3F-yes-green.svg](https://img.shields.io/badge/Maintained%3F-yes-green.svg)" alt="Maintained" />
-  <img src="[https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet](https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet)" alt="AI Providers" />
+  <img src="https://img.shields.io/github/license/josephetim/awesome-projects?color=blue" />
+  <img src="https://img.shields.io/github/stars/josephetim/awesome-projects?style=social" />
+  <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  <img src="https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet" />
+  <img src="https://img.shields.io/badge/Framework-LangChain%20%7C%20CrewAI-orange" />
 </p>
-> **No fluff. No toy tutorials.** A curated collection of end-to-end AI projects ranging from single-file scripts to multi-agent production pipelines, documented for humans.
 
 ---
+
+> **No fluff. No toy tutorials.** Real AI projects documented for humans, ranging from single-file scripts to multi-agent production pipelines.
 
 ## 🚀 Why This Repository Exists
 
