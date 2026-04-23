@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Builder's Triad | Open Source Ecosystem Hub</title>
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #101827;
+      --panel-2: #0f1420;
+      --text: #e6edf7;
+      --muted: #95a4bf;
+      --line: #263447;
+      --ai: #38bdf8;
+      --eval: #f59e0b;
+      --sec: #22c55e;
+      --warn: #ef4444;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: radial-gradient(circle at 15% -10%, #142035 0%, var(--bg) 50%); color: var(--text); font-family: "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif; }
+    a { color: inherit; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+    header { padding: 28px 0 12px; }
+    .eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    h1 { margin: 10px 0; font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.1; }
+    .brand-gradient { background: linear-gradient(90deg, var(--ai), var(--eval), var(--sec)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .subtitle { color: var(--muted); max-width: 860px; line-height: 1.6; }
+
+    .provider-note {
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #111a2a, #0e1420);
+      padding: 14px 16px;
+    }
+    .provider-note h2 { font-size: 1rem; margin: 0 0 8px; }
+    .provider-note p { margin: 6px 0; color: var(--muted); }
+
+    .tabs { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: #0b1220;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .tab-btn[aria-selected="true"] { outline: none; }
+    .tab-btn.ai[aria-selected="true"] { border-color: var(--ai); box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35) inset; }
+    .tab-btn.eval[aria-selected="true"] { border-color: var(--eval); box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.35) inset; }
+    .tab-btn.sec[aria-selected="true"] { border-color: var(--sec); box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.35) inset; }
+
+    [role="tabpanel"] { margin-top: 20px; }
+    [role="tabpanel"][hidden] { display: none; }
+
+    .repo-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .repo-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .repo-head h2 { margin: 0; font-size: 1.2rem; }
+    .repo-head p { margin: 8px 0 0; color: var(--muted); }
+
+    .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .cta {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 12px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      background: #111a2a;
+    }
+    .cta:hover, .cta:focus { border-color: var(--text); }
+
+    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 12px; }
+    .module {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel-2);
+      padding: 12px;
+    }
+    .module h3 { margin: 0 0 8px; font-size: 1rem; }
+    .meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .level-beginner { border-color: #16a34a55; color: #86efac; }
+    .level-intermediate { border-color: #f59e0b55; color: #fcd34d; }
+    .level-advanced { border-color: #ef444455; color: #fca5a5; }
+    .module p { margin: 0; color: var(--muted); line-height: 1.5; }
+    .module a { display: inline-block; margin-top: 8px; color: #cbd5e1; font-size: 0.88rem; }
+
+    details {
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 10px;
+      background: #0c121d;
+    }
+    summary { cursor: pointer; font-weight: 600; }
+    ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+
+    footer { margin: 22px 0 18px; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Builder's Triad</div>
+      <h1>Open Source <span class="brand-gradient">Ecosystem Hub</span></h1>
+      <p class="subtitle">One landing page for the full builder ecosystem: practical AI builds, evaluation labs, and safe cybersecurity training modules.</p>
+
+      <section class="provider-note" aria-label="Provider system">
+        <h2>Provider System (LLM Projects)</h2>
+        <p>Gemini is the free default path (<code>PROVIDER=gemini</code>).</p>
+        <p>OpenAI is the optional paid upgrade (<code>PROVIDER=openai</code>).</p>
+        <p>Every LLM-based module isolates provider logic in local <code>llm.py</code> (or <code>llm.ts</code>).</p>
+      </section>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Repository sections">
+      <button class="tab-btn ai" role="tab" aria-selected="true" aria-controls="panel-ai" id="tab-ai">AI Projects</button>
+      <button class="tab-btn eval" role="tab" aria-selected="false" aria-controls="panel-eval" id="tab-eval">LLM Evaluation</button>
+      <button class="tab-btn sec" role="tab" aria-selected="false" aria-controls="panel-sec" id="tab-sec">Cybersecurity</button>
+    </div>
+
+    <section id="panel-ai" role="tabpanel" aria-labelledby="tab-ai">
+      <article class="repo-card">
+        <div class="repo-head">
+          <div>
+            <h2>awesome-ai-builds</h2>
+            <p>Hands-on AI applications from beginner to advanced, with production-style project structure and test coverage.</p>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a class="cta" href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/awesome-ai-builds">View Repository</a>
+          <a class="cta" href="#ai-modules">Explore Projects</a>
+          <a class="cta" href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/awesome-ai-builds/README.md">Read Docs</a>
+        </div>
+
+        <div class="grid" id="ai-modules">
+          <div class="module">
+            <h3>pdf-qa-chatbot</h3>
+            <div class="meta"><span class="pill level-beginner">beginner</span><span class="pill">Python + LangChain + FAISS + Gradio</span></div>
+            <p>Upload a PDF, retrieve relevant chunks, and answer grounded questions through a RAG pipeline.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/awesome-ai-builds/beginner/pdf-qa-chatbot/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>sentiment-classifier</h3>
+            <div class="meta"><span class="pill level-beginner">beginner</span><span class="pill">Python + Transformers + Gradio</span></div>
+            <p>Local sentiment classifier with positive/negative/neutral outputs and confidence reporting.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/awesome-ai-builds/beginner/sentiment-classifier/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>email-subject-generator</h3>
+            <div class="meta"><span class="pill level-beginner">beginner</span><span class="pill">Python + Streamlit + llm.py</span></div>
+            <p>Few-shot prompt workflow that returns five parsed email subject line suggestions.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/awesome-ai-builds/beginner/email-subject-generator/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>ai-research-assistant</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">Python + LangGraph + Tavily + Streamlit</span></div>
+            <p>Searches web sources, manages state, and synthesizes structured research outputs with citations.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/awesome-ai-builds/intermediate/ai-research-assistant/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>image-caption-api</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">Python + FastAPI + BLIP-2</span></div>
+            <p>REST API for local image caption generation with health checks and upload endpoint.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/awesome-ai-builds/intermediate/image-caption-api/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>code-reviewer-bot</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">Python + FastAPI + PyGithub + llm.py</span></div>
+            <p>GitHub webhook bot that analyzes PR diffs and posts structured review comments.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/awesome-ai-builds/intermediate/code-reviewer-bot/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>multi-agent-news-analyst</h3>
+            <div class="meta"><span class="pill level-advanced">advanced</span><span class="pill">Python + CrewAI + Serper + Celery + PostgreSQL + Redis</span></div>
+            <p>Researcher/Analyst/Writer multi-agent pipeline that generates and stores daily briefings.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/awesome-ai-builds/advanced/multi-agent-news-analyst/README.md">Open module docs</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="panel-eval" role="tabpanel" aria-labelledby="tab-eval" hidden>
+      <article class="repo-card">
+        <div class="repo-head">
+          <div>
+            <h2>llm-eval-lab</h2>
+            <p>Evaluation-first modules for prompt regression, metric analysis, benchmarking, bias checks, and human annotation.</p>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a class="cta" href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/llm-eval-lab">View Repository</a>
+          <a class="cta" href="#eval-modules">Explore Projects</a>
+          <a class="cta" href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/llm-eval-lab/README.md">Read Docs</a>
+        </div>
+
+        <div class="grid" id="eval-modules">
+          <div class="module">
+            <h3>prompt-regression</h3>
+            <div class="meta"><span class="pill level-beginner">beginner</span><span class="pill">pytest + YAML + llm.py</span></div>
+            <p>YAML-defined prompt test cases with exact, contains, and LLM-as-judge grading strategies.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/llm-eval-lab/foundations/prompt-regression/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>hallucination-detection</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">BERTScore + sentence-transformers + notebook</span></div>
+            <p>Local grounding metrics that compare source evidence against generated answers.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/llm-eval-lab/metrics/hallucination-detection/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>rouge-bleu</h3>
+            <div class="meta"><span class="pill level-beginner">beginner</span><span class="pill">ROUGE + BLEU + notebook</span></div>
+            <p>Interactive explainer for overlap metrics, including interpretation pitfalls.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/llm-eval-lab/metrics/rouge-bleu/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>ragas-pipeline</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">RAGAS + FAISS + Streamlit + llm.py</span></div>
+            <p>Mini RAG implementation with faithfulness, context recall, and answer relevance evaluation.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/llm-eval-lab/frameworks/ragas-pipeline/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>model-comparison-dashboard</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">Streamlit + Plotly + llm.py</span></div>
+            <p>Side-by-side Gemini/OpenAI benchmark dashboard with rubric aggregation.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/llm-eval-lab/case-studies/model-comparison-dashboard/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>bias-audit</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">Pandas + Plotly + Streamlit + llm.py</span></div>
+            <p>Counterfactual prompt pair auditing with disparity scoring and visualization.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/llm-eval-lab/case-studies/bias-audit/README.md">Open module docs</a>
+          </div>
+          <div class="module">
+            <h3>annotation-tool</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">FastAPI + SQLite + Jinja2</span></div>
+            <p>Human-rating workflow with relevance/accuracy/tone labels and Fleiss’ Kappa agreement.</p>
+            <a href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/llm-eval-lab/human-eval/annotation-tool/README.md">Open module docs</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="panel-sec" role="tabpanel" aria-labelledby="tab-sec" hidden>
+      <article class="repo-card">
+        <div class="repo-head">
+          <div>
+            <h2>secure-builder-kit</h2>
+            <p>Authorized-use cybersecurity training kit with local labs, defensive walkthroughs, and safe exploit demonstrations.</p>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a class="cta" href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/secure-builder-kit">View Repository</a>
+          <a class="cta" href="#sec-modules">Explore Projects</a>
+          <a class="cta" href="file:///C:/Users/User/Documents/projects/LLM/MyLlm/secure-builder-kit/README.md">Read Docs</a>
+        </div>
+
+        <div class="grid" id="sec-modules">
+          <div class="module">
+            <h3>lab-setup</h3>
+            <div class="meta"><span class="pill level-beginner">beginner</span><span class="pill">Docker Compose</span></div>
+            <p>Local DVWA + Ubuntu lab bootstrap in under 10 setup steps.</p>
+          </div>
+          <div class="module">
+            <h3>networking-basics</h3>
+            <div class="meta"><span class="pill level-beginner">beginner</span><span class="pill">Python + socket + requests + dnspython</span></div>
+            <p>Interactive DNS, TCP handshake, and HTTP anatomy scripts and notebook.</p>
+          </div>
+          <div class="module">
+            <h3>owasp-top-10</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">DVWA + Python demos</span></div>
+            <p>Ten category units with plain-English explanation, safe demo, and mitigation code.</p>
+            <details>
+              <summary>View OWASP Category Modules</summary>
+              <ul>
+                <li>A01 broken access control</li>
+                <li>A02 cryptographic failures</li>
+                <li>A03 injection</li>
+                <li>A04 insecure design</li>
+                <li>A05 security misconfiguration</li>
+                <li>A06 vulnerable and outdated components</li>
+                <li>A07 identification and authentication failures</li>
+                <li>A08 software and data integrity failures</li>
+                <li>A09 security logging and monitoring failures</li>
+                <li>A10 server-side request forgery</li>
+              </ul>
+            </details>
+          </div>
+          <div class="module">
+            <h3>sql-injection</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">Python + requests + BeautifulSoup + DVWA</span></div>
+            <p>Deep SQLi lab covering basic, UNION, blind boolean, and blind time-based techniques with defenses.</p>
+          </div>
+          <div class="module">
+            <h3>jwt-lab</h3>
+            <div class="meta"><span class="pill level-advanced">advanced</span><span class="pill">FastAPI + python-jose + Docker</span></div>
+            <p>Vulnerable and secure JWT apps with local exploit scripts for three JWT failure classes.</p>
+          </div>
+          <div class="module">
+            <h3>packet-analyzer</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">Scapy + Rich</span></div>
+            <p>Real-time packet breakdown tool with explicit permission and interface guidance.</p>
+          </div>
+          <div class="module">
+            <h3>port-scanner</h3>
+            <div class="meta"><span class="pill level-intermediate">intermediate</span><span class="pill">socket + threading + Rich</span></div>
+            <p>Fast TCP scanner with CIDR support, optional banner grabbing, and JSON/CSV exports.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      Builder's Triad Hub | Last updated: 2026-04-23
+    </footer>
+  </div>
+
+  <script>
+    const tabs = [...document.querySelectorAll('[role="tab"]')];
+    const panels = [...document.querySelectorAll('[role="tabpanel"]')];
+
+    function activate(tabId) {
+      tabs.forEach((tab) => {
+        const selected = tab.id === tabId;
+        tab.setAttribute("aria-selected", String(selected));
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.getAttribute("aria-labelledby") !== tabId;
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => activate(tab.id));
+      tab.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+          const index = tabs.indexOf(tab);
+          const next = event.key === "ArrowRight" ? (index + 1) % tabs.length : (index - 1 + tabs.length) % tabs.length;
+          tabs[next].focus();
+          activate(tabs[next].id);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

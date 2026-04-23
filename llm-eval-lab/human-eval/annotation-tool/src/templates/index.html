@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Human Evaluation Annotation Tool</h1>
+<p class="muted">Total annotations submitted: {{ annotation_count }}</p>
+
+{% for item in items %}
+<div class="card">
+  <h3>Item {{ item.id }}</h3>
+  <p><strong>Prompt:</strong> {{ item.prompt }}</p>
+  <p><strong>Output:</strong> {{ item.output }}</p>
+  <a href="/annotate/{{ item.id }}">Annotate This Item</a>
+</div>
+{% endfor %}
+{% endblock %}

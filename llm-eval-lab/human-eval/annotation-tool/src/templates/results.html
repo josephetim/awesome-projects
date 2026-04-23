@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Annotation Results</h1>
+
+<div class="card">
+  <h3>Inter-Annotator Agreement (Fleiss' Kappa)</h3>
+  <ul>
+    <li>Relevance: {{ kappas.relevance }}</li>
+    <li>Accuracy: {{ kappas.accuracy }}</li>
+    <li>Tone: {{ kappas.tone }}</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Submitted Annotations</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Item</th>
+        <th>Annotator</th>
+        <th>Relevance</th>
+        <th>Accuracy</th>
+        <th>Tone</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in annotations %}
+      <tr>
+        <td>{{ row.id }}</td>
+        <td>{{ row.item_id }}</td>
+        <td>{{ row.annotator }}</td>
+        <td>{{ row.relevance }}</td>
+        <td>{{ row.accuracy }}</td>
+        <td>{{ row.tone }}</td>
+        <td>{{ row.created_at }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

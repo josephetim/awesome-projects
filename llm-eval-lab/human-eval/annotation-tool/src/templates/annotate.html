@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Annotate Item {{ item.id }}</h1>
+<div class="card">
+  <p><strong>Prompt:</strong> {{ item.prompt }}</p>
+  <p><strong>Output:</strong> {{ item.output }}</p>
+</div>
+
+<form method="post" class="card">
+  <label>Annotator Name</label><br>
+  <input type="text" name="annotator" required><br><br>
+
+  <label>Relevance (1-5)</label><br>
+  <select name="relevance">
+    {% for score in scores %}
+    <option value="{{ score }}">{{ score }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  <label>Accuracy (1-5)</label><br>
+  <select name="accuracy">
+    {% for score in scores %}
+    <option value="{{ score }}">{{ score }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  <label>Tone (1-5)</label><br>
+  <select name="tone">
+    {% for score in scores %}
+    <option value="{{ score }}">{{ score }}</option>
+    {% endfor %}
+  </select><br><br>
+
+  <button type="submit">Submit Annotation</button>
+</form>
+{% endblock %}

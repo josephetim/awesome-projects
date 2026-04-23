@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: security-lab-dvwa
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  ubuntu-lab:
+    image: ubuntu:22.04
+    container_name: security-lab-ubuntu
+    command: ["bash", "-lc", "apt-get update && apt-get install -y iputils-ping net-tools curl && tail -f /dev/null"]
+    restart: unless-stopped

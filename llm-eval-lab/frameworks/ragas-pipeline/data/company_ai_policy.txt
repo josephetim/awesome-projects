@@ -1,0 +1,4 @@
+Acme Corp AI Policy:
+- Customer personal data must never be used in public model fine-tuning.
+- Human review is required before external customer-facing responses are sent.
+- Incident reports must be filed within 24 hours for AI safety failures.

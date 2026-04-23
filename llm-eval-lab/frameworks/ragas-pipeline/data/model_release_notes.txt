@@ -1,0 +1,4 @@
+Model Release Notes:
+- Version 3.2 reduced hallucination rate by 18% on internal benchmark.
+- Average response latency increased by 120ms due to stronger safety checks.
+- Retrieval chunk size was reduced from 1200 to 800 tokens for better relevance.

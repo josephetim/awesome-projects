@@ -1,0 +1,1 @@
+"""Annotation tool source package."""

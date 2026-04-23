@@ -1,0 +1,5 @@
+id,source,answer,label
+1,"The Eiffel Tower is in Paris and opened in 1889.","The Eiffel Tower is in Paris and opened in 1889.",grounded
+2,"Python is a programming language created by Guido van Rossum.","Python was created by Guido van Rossum.",grounded
+3,"The Amazon rainforest is primarily in South America.","The Amazon rainforest is mostly in Africa.",hallucinated
+4,"PostgreSQL is an open-source relational database.","PostgreSQL is a proprietary NoSQL database.",hallucinated

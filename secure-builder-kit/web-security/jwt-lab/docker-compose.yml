@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  vulnerable-jwt-app:
+    build:
+      context: .
+      dockerfile: vulnerable-app/Dockerfile
+    ports:
+      - "8001:8001"
+
+  secure-jwt-app:
+    build:
+      context: .
+      dockerfile: secure-app/Dockerfile
+    ports:
+      - "8002:8002"

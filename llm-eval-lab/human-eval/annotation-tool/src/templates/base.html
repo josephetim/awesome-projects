@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title if title else "Annotation Tool" }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #10131a; color: #eaf0ff; }
+    header { padding: 16px 24px; background: #161c28; border-bottom: 1px solid #27324a; }
+    header a { color: #8cc8ff; margin-right: 16px; text-decoration: none; }
+    main { max-width: 1000px; margin: 0 auto; padding: 24px; }
+    .card { background: #141a26; border: 1px solid #27324a; border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+    .muted { color: #9aa8c5; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #27324a; padding: 8px; text-align: left; vertical-align: top; }
+    input, select, button, textarea { background: #0f1522; color: #eaf0ff; border: 1px solid #2d3a55; border-radius: 6px; padding: 8px; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">Home</a>
+    <a href="/results">Results</a>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

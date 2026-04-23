@@ -1,0 +1,4 @@
+Compliance Notes:
+- Data retention for AI logs is limited to 30 days unless legal hold applies.
+- Prompt and response logs must be encrypted at rest and in transit.
+- Access to raw conversation logs is restricted to authorized security staff.
