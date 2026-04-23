@@ -1,14 +1,13 @@
 # awesome-ai-builds
 
 <p align="left">
-  <img src="https://img.shields.io/github/license/josephetim/awesome-ai?color=blue" />
-  <img src="https://img.shields.io/github/stars/josephetim/awesome-ai?style=social" />
+  <img src="https://img.shields.io/github/license/josephetim/awesome-projects?color=blue" />
+  <img src="https://img.shields.io/github/stars/josephetim/awesome-projects?style=social" />
   <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   <img src="https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet" />
   <img src="https://img.shields.io/badge/Framework-LangChain%20%7C%20CrewAI-orange" />
 </p>
-[![License](https://img.shields.io/github/license/josephetim/awesome-ai?color=blue)](https://github.com/josephetim/awesome-ai/blob/main/LICENSE)
-[![Stars](https://img.shields.io/github/stars/josephetim/awesome-ai?style=social)](https://github.com/josephetim/awesome-ai/stargazers)
+
 
 > **No fluff. No toy tutorials.** Real AI projects documented for humans, ranging from single-file scripts to multi-agent production pipelines.
 
