@@ -1,8 +1,8 @@
 # awesome-ai-builds
 
 <p align="left">
-  <img src="https://img.shields.io/github/license/druidivine/awesome-ai-builds?color=blue" />
-  <img src="https://img.shields.io/github/stars/druidivine/awesome-ai-builds?style=social" />
+  <img src="https://img.shields.io/github/license/josephetim/awesome-ai-builds?color=blue" />
+  <img src="https://img.shields.io/github/stars/josephetim/awesome-ai-builds?style=social" />
   <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   <img src="https://img.shields.io/badge/AI-Gemini%20%7C%20OpenAI-blueviolet" />
   <img src="https://img.shields.io/badge/Framework-LangChain%20%7C%20CrewAI-orange" />
