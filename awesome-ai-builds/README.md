@@ -1,12 +1,12 @@
 # 🤖 awesome-ai-builds
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/your-org/awesome-ai-builds/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/your-org/awesome-ai-builds/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/josephetim/awesome-ai-builds/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/your-org/awesome-ai-builds/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](./LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![Powered by Gemini](https://img.shields.io/badge/AI-Gemini%201.5%20Flash-orange?style=flat-square&logo=google)](https://aistudio.google.com/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](./CONTRIBUTING.md)
-[![Stars](https://img.shields.io/github/stars/your-org/awesome-ai-builds?style=flat-square&color=yellow)](https://github.com/your-org/awesome-ai-builds/stargazers)
-[![Contributors](https://img.shields.io/github/contributors/your-org/awesome-ai-builds?style=flat-square)](https://github.com/your-org/awesome-ai-builds/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/josephetim/awesome-ai-builds?style=flat-square&color=yellow)](https://github.com/your-org/awesome-ai-builds/stargazers)
+[![Contributors](https://img.shields.io/github/contributors/josephetim/awesome-ai-builds?style=flat-square)](https://github.com/your-org/awesome-ai-builds/graphs/contributors)
 
 > A haven for anyone who wants to pick up an AI project and actually ship it.
 
