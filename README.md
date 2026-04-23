@@ -1,6 +1,6 @@
 
 
-# 🤖 awesome-ai
+# 🤖 awesome-prjects for AI, LLM and Ethical Hacking Enthusiasts
 
 <p align="left">
   <img src="https://img.shields.io/github/license/josephetim/awesome-projects?color=blue" />
